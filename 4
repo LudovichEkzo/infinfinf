@@ -1,0 +1,21 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(x):
+    return 2*x**4 - 39*x**3 - 70*x + 4
+
+x = np.linspace(-5, 5, 100)
+y = f(x)
+
+plt.plot(x, y)
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title('График функции f(x) =2x^4-39x^3-70x+4')
+plt.grid(True)
+plt.show()
+
+min_value = np.min(y)
+max_value = np.max(y)
+
+print("Минимальное значение функции:", min_value)
+print("Максимальное значение функции:", max_value)

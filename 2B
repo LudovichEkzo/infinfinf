@@ -1,0 +1,5 @@
+x = int(input("Циферку x: "))
+if (-2 <= x < 5) : 
+    print('Победа')
+else:
+    print('Мимо')

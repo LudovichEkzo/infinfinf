@@ -1,0 +1,22 @@
+import numpy as np
+A = np.array([[1, 5, 1], [4, -1, 1], [20, 7, 56]], dtype=float)
+b = np.array([24, 15, 762], dtype=float)
+n = len(b)
+for k in range(n):
+    max_index = max(range(k, n), key=lambda i: abs(A[i][k]))
+    A[k], A[max_index] = A[max_index], A[k]
+    b[k], b[max_index] = b[max_index], b[k]
+    for i in range(k + 1, n):
+        for j in range(k, n):
+            A[i][j] -= A[i][k] / A[k][k] * A[k][j]
+    
+        b[i] -= A[i][k] / A[k][k] * b[k]
+
+# Обратный ход метода Гаусса
+x = [0] * n
+for k in range(n - 1, -1, -1):
+    x[k] = (b[k] - sum(A[k][j] * x[j] for j in range(k + 1, n))) / A[k][k]
+
+# Вывод решений
+for i, value in enumerate(x):
+    print(f"x{i+1} = {value}")

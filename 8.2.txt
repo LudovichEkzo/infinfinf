@@ -1,0 +1,10 @@
+import numpy as np
+
+A = np.array([[1, 5, 1], [4, -1, 1], [20, 7, 56]], dtype=float)
+A_inv = np.linalg.inv(A)
+print("Обратная матрица A:\n", A_inv)
+det_A = np.linalg.det(A)
+print("матрица A:", det_A)
+b = np.array([24, 15, 762], dtype=float)
+x = np.dot(A_inv, b)
+print("То самое СЛАУ:\n", x)

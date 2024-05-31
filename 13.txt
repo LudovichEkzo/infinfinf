@@ -1,0 +1,28 @@
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.array([2, 3, 5, 7, 13, 10, 9, 2, 4, 6, 8, 3])
+y = np.array([1, 2, 4, 7, 17, 10, 8, 1, 4, 6, 9, 3])
+n = len(x)
+sum_x = np.sum(x)
+sum_y = np.sum(y)
+sum_x_squared = np.sum(x**2)
+sum_xy = np.sum(x * y)
+n = len(x)
+sum_x = np.sum(x)
+sum_y = np.sum(y)
+sum_x_squared = np.sum(x**2)
+sum_xy = np.sum(x * y)
+numerator = n * sum_xy - sum_x * sum_y
+denominator = n * sum_x_squared - sum_x**2
+m = numerator / denominator
+b = (sum_y - m * sum_x) / n
+x_line = np.linspace(min(x), max(x), 100)
+y_line = m * x_line + b
+plt.scatter(x, y, label='Мои точки')
+plt.plot(x_line, y_line, color='red', label='прямая')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('прямая от моих точек')
+plt.legend()
+plt.grid(True)
+plt.show()
